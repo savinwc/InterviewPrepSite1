@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Data Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        h1, h2, h3 {
+            color: #e0e0e0;
+        }
+        h1 {
+            border-bottom: 2px solid #333; /* Darker border */
+            padding-bottom: 10px;
+        }
+        h2, h3 {
+            border-bottom: 1px solid #333; /* Darker border */
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        img {
+            display: block;
+            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+        }
+        .code-label {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #1e1e1e; /* Darker code background */
+            color: #dcdcdc; /* Light text in code */
+            padding: 10px;
+            border: 1px solid #333; /* Darker border */
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .output {
+            margin-top: 10px;
+            font-family: monospace;
+            border-top: 1px solid #333; /* Darker border */
+            padding-top: 10px;
+        }
+        iframe {
+            width: 100%;
+            border: 1px solid #333; /* Darker border */
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+        }
+        th {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        td {
+            background-color: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Queue Data Structure</h1>
+    
+    <p>A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle. It operates like a line where elements are added at one end (rear) and removed from the other end (front).</p>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726165642/Queue-Data-structure1.png" alt="Queue Example">
+
+    <h2>Basic Operations of Queue</h2>
+    <ul>
+        <li><strong>Enqueue (Insert):</strong> Adds an element to the rear of the queue.</li>
+        <li><strong>Dequeue (Delete):</strong> Removes and returns the element from the front of the queue.</li>
+        <li><strong>Peek:</strong> Returns the element at the front of the queue without removing it.</li>
+        <li><strong>Empty:</strong> Checks if the queue is empty.</li>
+        <li><strong>Full:</strong> Checks if the queue is full.</li>
+    </ul>
+
+    <h2>Applications of Queue</h2>
+    <ul>
+        <li>Task scheduling in operating systems</li>
+        <li>Data transfer in network communication</li>
+        <li>Simulation of real-world systems (e.g., waiting lines)</li>
+        <li>Priority queues for event processing</li>
+    </ul>
+
+    <div>
+        <span class="code-label">Code:</span>
+        <pre>
+import java.util.*;
+
+class QueueExample {
+    public static void main(String[] args) {
+        // Create a queue using LinkedList
+        Queue<Integer> queue = new LinkedList<>();
+        
+        // Display the queue
+        System.out.println("Queue: " + queue);
+        
+        // Insert elements in the queue using offer()
+        queue.offer(20);
+        queue.offer(30);
+        queue.offer(40);
+        queue.offer(50);
+        
+        // Print queue elements
+        System.out.println("Queue after insertions: " + queue);
+        
+        // Insert one more element using offer()
+        queue.offer(60);
+        
+        // Print queue elements
+        System.out.println("Queue after inserting 60: " + queue);
+        
+        // Remove elements from the queue using poll()
+        queue.poll();
+        queue.poll();
+        
+        System.out.println("Queue after two deletions: " + queue);
+        
+        // Print the front of the queue
+        System.out.println("Front element: " + queue.peek());
+        
+        // Print the size of the queue
+        System.out.println("Size of the queue: " + queue.size());
+    }
+}
+        </pre>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Queue: []<br>
+            Queue after insertions: [20, 30, 40, 50]<br>
+            Queue after inserting 60: [20, 30, 40, 50, 60]<br>
+            Queue after two deletions: [40, 50, 60]<br>
+            Front element: 40<br>
+            Size of the queue: 3<br>
+        </div>
+    </div>
+
+    <h2>Priority Queue</h2>
+    <img src="./pq.jpg" alt="Priority Queue Example">
+
+    <h3>1. Ascending Order Priority Queue</h3>
+    <p>
+        In an ascending order priority queue, the element with a lower priority value is given a higher priority in the priority list. 
+        For example, if we have the following elements in a priority queue arranged in ascending order like 4, 6, 8, 9, 10, the smallest number (4) will have the highest priority.
+        When we dequeue from this type of priority queue, 4 will be removed first and returned.
+    </p>
+
+    <h3>2. Descending Order Priority Queue</h3>
+    <p>
+        In a max heap, the root node is the maximum element. This means the element with the highest priority is removed first.
+        When the root node is removed from the queue, this deletion leaves an empty space which will be filled with new insertions in the future.
+        The heap invariant is then maintained by comparing the newly inserted element to all other entries in the queue.
+    </p>
+
+    <h2>Methods of Priority Queue</h2>
+    <h3>1. Insertion in a Priority Queue: O(log n)</h3>
+    <p>
+        When a new element is inserted in a priority queue, it moves to the empty slot from top to bottom and left to right.
+        If the element is not in the correct place, it is compared with the parent node. If not in the correct order, the elements are swapped.
+        This swapping process continues until all elements are in the correct position.
+    </p>
+
+    <h3>2. Deletion in a Priority Queue: O(log n)</h3>
+    <p>
+        In a max heap, the maximum element is the root node. It removes the element with the highest priority first.
+        When the root node is removed from the queue, this creates an empty slot, which is filled with new insertions.
+        Then, the newly inserted element is compared with all other elements in the queue to maintain the heap invariant.
+    </p>
+
+    <h3>3. Peek in a Priority Queue: O(1)</h3>
+    <p>
+        This operation returns the maximum element from a Max Heap or the minimum element from a Min Heap without deleting the node from the priority queue.
+    </p>
+
+    <div>
+        <span class="code-label">Code:</span>
+        <pre>
+import java.util.PriorityQueue;
+import java.util.Collections;
+
+class Main {
+    public static void main(String[] args) {
+        // Create a Priority Queue with max-heap behavior
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // Insertion in the Priority Queue (Max-Heap)
+        maxHeap.offer(20);
+        maxHeap.offer(30);
+        maxHeap.offer(40);
+        maxHeap.offer(50);
+
+        // Display the max-heap
+        System.out.println("Max-Heap: " + maxHeap);
+
+        // Peek the maximum element without removing it
+        System.out.println("Peek (Max Element): " + maxHeap.peek());
+
+        // Deletion in the Priority Queue (Max-Heap)
+        System.out.println("Deleted element (Max Element): " + maxHeap.poll());
+
+        // Display the max-heap after deletion
+        System.out.println("Max-Heap after deletion: " + maxHeap);
+    }
+}
+        </pre>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Max-Heap: [50, 40, 30, 20]<br>
+            Peek (Max Element): 50<br>
+            Deleted element (Max Element): 50<br>
+            Max-Heap after deletion: [40, 30, 20]<br>
+        </div>
+    </div>
+
+    <h2>Deque (Double-Ended Queue)</h2>
+    <p>
+        A deque (double-ended queue) is a linear data structure that allows insertion and deletion of elements from both ends. It combines features of both stacks and queues.
+        Deques can be implemented using arrays or linked lists. In Java, the <code>Deque</code> interface is part of the <code>java.util</code> package and can be implemented using classes like <code>ArrayDeque</code> or <code>LinkedList</code>.
+    </p>
+
+    <img src="https://miro.medium.com/v2/resize:fit:808/1*ZwzxuHHhgEcSYQRQNk_JlQ.png" alt="Deque Example">
+
+    <h3>Operations of Deque</h3>
+    <ul>
+        <li><strong>Insert Front:</strong> Adds an element to the front of the deque.</li>
+        <li><strong>Insert Rear:</strong> Adds an element to the rear of the deque.</li>
+        <li><strong>Remove Front:</strong> Removes and returns the element from the front of the deque.</li>
+        <li><strong>Remove Rear:</strong> Removes and returns the element from the rear of the deque.</li>
+        <li><strong>Peek Front:</strong> Returns the element at the front of the deque without removing it.</li>
+        <li><strong>Peek Rear:</strong> Returns the element at the rear of the deque without removing it.</li>
+        <li><strong>Empty:</strong> Checks if the deque is empty.</li>
+    </ul>
+
+    <div>
+        <span class="code-label">Code:</span>
+        <pre>
+import java.util.*;
+
+class DequeExample {
+    public static void main(String[] args) {
+        // Create a deque using ArrayDeque
+        Deque<Integer> deque = new ArrayDeque<>();
+        
+        // Insert elements at the rear of the deque
+        deque.offerLast(10);
+        deque.offerLast(20);
+        deque.offerLast(30);
+        
+        // Insert elements at the front of the deque
+        deque.offerFirst(0);
+        deque.offerFirst(-10);
+        
+        // Display the deque
+        System.out.println("Deque after insertions: " + deque);
+        
+        // Remove elements from the front of the deque
+        deque.pollFirst();
+        deque.pollFirst();
+        
+        // Display the deque after removals
+        System.out.println("Deque after removals: " + deque);
+        
+        // Peek the front and rear elements
+        System.out.println("Front element: " + deque.peekFirst());
+        System.out.println("Rear element: " + deque.peekLast());
+        
+        // Print the size of the deque
+        System.out.println("Size of the deque: " + deque.size());
+    }
+}
+        </pre>
+        <div class="output">
+            <strong>Output:</strong><br>
+            Deque after insertions: [-10, 0, 10, 20, 30]<br>
+            Deque after removals: [10, 20, 30]<br>
+            Front element: 10<br>
+            Rear element: 30<br>
+            Size of the deque: 3<br>
+        </div>
+    </div>
+
+    <h2>Comparison Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Operation</th>
+                <th>Queue</th>
+                <th>Priority Queue</th>
+                <th>Deque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Insertion</td>
+                <td>O(1)</td>
+                <td>O(log n)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Deletion</td>
+                <td>O(1)</td>
+                <td>O(log n)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Peek</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Space Complexity</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

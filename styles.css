@@ -1,0 +1,194 @@
+/* Set the background image for the entire page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg'); /* Replace with your image file */
+    background-size: cover;
+    background-position: center;
+    color: #090808; /* Text color */
+}
+
+/* Container for content to provide padding and background color */
+.main-content {
+    padding: 10px;
+    background-color: rgba(240, 236, 236, 0.6); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+
+/* Sidebar style for better positioning */
+aside {
+    position: fixed;
+    top: 10;
+    left: 0;
+    width: 230px; /* Adjust width as needed */
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for sidebar */
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+aside a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+aside a.active {
+    background-color: #f3f4f6; /* Light mode active link background */
+    color: #000; /* Text color */
+}
+
+aside a.active.dark {
+    background-color: #2d3748; /* Dark mode active link background */
+    color: #fff; /* Text color for dark mode */
+}
+
+/* Content area adjustment to leave space for sidebar */
+.content-wrapper {
+    margin-left: 230px; /* Adjust margin to the width of the sidebar */
+    padding: 60px;
+}
+
+/* Center align images and increase space between them */
+.image-container {
+    text-align: center; /* Center align images */
+}
+
+.image-container img {
+    margin: 100px; /* Increase space between images */
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Ensure buttons and dropdowns are the same width */
+.button, .dropdown-button {
+    width: 1070px; /* Fixed width for all buttons */
+    display: inline-flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 200px; /* Match the button width */
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #8babea;
+}
+
+/* Basic styles for dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #131212;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu .dropdown-item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #57e7e5;
+}
+
+#DFSMenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Position the nested dropdown to the right */
+.dropdown-item {
+    position: relative;
+}
+
+.dropdown-item > .dropdown-menu {
+    top: 0;
+    left: 100%; /* Aligns it to the right */
+    margin-left: 1px; /* Small margin for spacing */
+}
+
+/* Additional styling for dropdown items */
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 10px;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #57e7e5;
+}
+
+/* Default styling for links */
+.sidebar-link {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling for the active state */
+.sidebar-link.active {
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+}
+
+.sidebar-link.active svg {
+    color: #000000; /* Black icon */
+}
+
+.sidebar-link.active:hover {
+    background-color: #f0f0f0; /* Light gray background on hover for better visual effect */
+}
+
+

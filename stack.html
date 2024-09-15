@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Data Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        h1, h2 {
+            color: #e0e0e0;
+        }
+        h1 {
+            border-bottom: 2px solid #333; /* Darker border */
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 1px solid #333; /* Darker border */
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        img {
+            display: block;
+            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+        }
+        .code-label {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #1e1e1e; /* Darker code background */
+            color: #dcdcdc; /* Light text in code */
+            padding: 10px;
+            border: 1px solid #333; /* Darker border */
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .output {
+            margin-top: 10px;
+            font-family: monospace;
+            border-top: 1px solid #333; /* Darker border */
+            padding-top: 10px;
+        }
+        iframe {
+            width: 100%;
+            border: 1px solid #333; /* Darker border */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stack Data Structure</h1>
+    
+    <p>A stack is a linear data structure that follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out). LIFO implies that the element that is inserted last, comes out first and FILO implies that the element that is inserted first, comes out last.</p>
+
+    <p>A stack behaves like a stack of plates, where the last plate added is the first one to be removed. Think of it this way:</p>
+    <ul>
+        <li>Pushing an element onto the stack is like adding a new plate on top.</li>
+        <li>Popping an element removes the top plate from the stack.</li>
+    </ul>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726165552/Stack-Data-Structure.png" alt="Stack Example">
+    
+    <h2>Key Operations on Stack Data Structures</h2>
+    <ul>
+        <li><strong>Push:</strong> Adds an element to the top of the stack.</li>
+        <li><strong>Pop:</strong> Removes the top element from the stack.</li>
+        <li><strong>Peek:</strong> Returns the top element without removing it.</li>
+        <li><strong>IsEmpty:</strong> Checks if the stack is empty.</li>
+        <li><strong>IsFull:</strong> Checks if the stack is full (in case of fixed-size arrays).</li>
+    </ul>
+
+    <h2>Applications of Stack Data Structures</h2>
+    <ul>
+        <li>Recursion</li>
+        <li>Expression Evaluation and Parsing</li>
+        <li>Depth-First Search (DFS)</li>
+        <li>Undo/Redo Operations</li>
+        <li>Browser History</li>
+        <li>Function Calls</li>
+    </ul>
+
+    <div>
+        <span class="code-label">Code:</span>
+        <pre>
+import java.util.*;
+
+class StackExample {
+    public static void main(String[] args) {
+        // Creating an empty stack
+        Stack<Integer> stack = new Stack<>();
+        
+        // Push elements into the stack
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        
+        // Displaying the stack
+        System.out.println("Stack: " + stack);
+        
+        // Pop element from the stack
+        System.out.println("Popped element: " + stack.pop());
+        
+        // Display the top element
+        System.out.println("Top element: " + stack.peek());
+        
+        // Check if the stack is empty
+        System.out.println("Is stack empty? " + stack.isEmpty());
+        
+        // Display the size of the stack
+        System.out.println("Stack size: " + stack.size());
+    }
+}
+        </pre>
+        <div class="output">
+            <strong>Output:</strong> <br>
+            Stack: [10, 20, 30]<br>
+            Popped element: 30<br>
+            Top element: 20<br>
+            Is stack empty? false<br>
+            Stack size: 2
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArrayList in Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        pre {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        iframe {
+            border: 1px solid #ddd;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>List in Java</h1>
+     
+    <p>The List interface is found in <code>java.util.package</code> and inherits the Collection interface. It is a factory of the List Iterator interface.  
+    Through the List Iterator, we can iterate the list in forward and backward directions.  
+    The implementation classes of the List interface are <b>ArrayList, LinkedList, Stack, and Vector</b>.</p>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240402154300/ArrayList_Java.png" alt="ArrayList Overview" width="600" height="400">
+
+    <hr>
+
+    <h2>ArrayList with Integer Objects</h2>
+    <p>Let us check an ArrayList with the Integer Object type stored in it, shown with an illustration below:</p>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240402155140/ArrayList_Integer_Object.png" alt="ArrayList with Integer Object" width="600" height="400">
+
+    <hr>
+
+    <h2>ArrayList Overview</h2>
+    <ul>
+        <li>ArrayList is a Java class implemented using the List interface.</li>
+        <li>It is a dynamic array and its size automatically increases when we add or remove elements.</li>
+        <li>Basic functionality when the array becomes full:
+            <ul>
+                <li>Creates larger memory on the heap (e.g., double size).</li>
+                <li>Copies current elements to the new memory space.</li>
+                <li>Adds the new element into the newly allocated space.</li>
+                <li>Deletes old memory space.</li>
+            </ul>
+        </li>
+        <li>ArrayList stores integer-type objects.</li>
+    </ul>
+
+    <hr>
+
+    <h2>ArrayList Constructors</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Constructor</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ArrayList()</td>
+                <td>Builds an empty array list.</td>
+                <td><code>ArrayList arr = new ArrayList();</code></td>
+            </tr>
+            <tr>
+                <td>ArrayList(Collection c)</td>
+                <td>Builds an array list initialized with elements from collection <code>c</code>.</td>
+                <td><code>ArrayList arr = new ArrayList(c);</code></td>
+            </tr>
+            <tr>
+                <td>ArrayList(int capacity)</td>
+                <td>Builds an array list with the specified initial capacity.</td>
+                <td><code>ArrayList arr = new ArrayList(N);</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>ArrayList Methods</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>add(int index, Object element)</td>
+                <td>Inserts a specific element at the specified index in the list.</td>
+            </tr>
+            <tr>
+                <td>add(Object o)</td>
+                <td>Appends a specific element to the end of the list.</td>
+            </tr>
+            <tr>
+                <td>addAll(Collection C)</td>
+                <td>Appends all elements from the specified collection to the end of the list.</td>
+            </tr>
+            <tr>
+                <td>addAll(int index, Collection C)</td>
+                <td>Inserts all elements starting at the specified index from a collection into the list.</td>
+            </tr>
+            <tr>
+                <td>clear()</td>
+                <td>Removes all elements from the list.</td>
+            </tr>
+            <tr>
+                <td>clone()</td>
+                <td>Returns a shallow copy of the ArrayList.</td>
+            </tr>
+            <tr>
+                <td>contains(Object o)</td>
+                <td>Returns true if the list contains the specified element.</td>
+            </tr>
+            <tr>
+                <td>ensureCapacity(int minCapacity)</td>
+                <td>Increases capacity to ensure the list can hold at least the specified number of elements.</td>
+            </tr>
+            <tr>
+                <td>forEach(Consumer&lt;? super E&gt; action)</td>
+                <td>Performs the given action for each element until all elements are processed or an exception is thrown.</td>
+            </tr>
+            <tr>
+                <td>get(int index)</td>
+                <td>Returns the element at the specified index in the list.</td>
+            </tr>
+            <tr>
+                <td>indexOf(Object o)</td>
+                <td>Returns the index of the first occurrence of the element or -1 if it's not found.</td>
+            </tr>
+            <tr>
+                <td>isEmpty()</td>
+                <td>Returns true if the list is empty.</td>
+            </tr>
+            <tr>
+                <td>lastIndexOf(Object o)</td>
+                <td>Returns the index of the last occurrence of the element or -1 if not found.</td>
+            </tr>
+            <tr>
+                <td>listIterator()</td>
+                <td>Returns a list iterator over the elements in this list in proper sequence.</td>
+            </tr>
+            <tr>
+                <td>remove(int index)</td>
+                <td>Removes the element at the specified position in the list.</td>
+            </tr>
+            <tr>
+                <td>remove(Object o)</td>
+                <td>Removes the first occurrence of the specified element from the list, if present.</td>
+            </tr>
+            <tr>
+                <td>size()</td>
+                <td>Returns the number of elements in the list.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Java Program Example</h2>
+    <!-- Scrollable input in an iframe -->
+    <iframe width="100%" height="300px" srcdoc="
+    <pre>
+// Java program to demonstrate the
+// working of ArrayList
+import java.io.*;
+import java.util.*;
+
+class ArrayListExample {
+    public static void main(String[] args)
+    {
+        // Size of the ArrayList
+        int n = 5;
+
+        // Declaring the ArrayList with initial size n
+        ArrayList&lt;Integer&gt; arr1 = new ArrayList&lt;Integer&gt;(n);
+
+        // Declaring the ArrayList
+        ArrayList&lt;Integer&gt; arr2 = new ArrayList&lt;Integer&gt;();
+
+        // Printing the ArrayList
+        System.out.println(&quot;Array 1:&quot; + arr1);
+        System.out.println(&quot;Array 2:&quot; + arr2);
+
+        // Appending new elements at the end of the list
+        for (int i = 1; i &lt;= n; i++) {
+            arr1.add(i);
+            arr2.add(i);
+        }
+
+        // Printing the ArrayList
+        System.out.println(&quot;Array 1:&quot; + arr1);
+        System.out.println(&quot;Array 2:&quot; + arr2);
+    }
+}
+    </pre>"></iframe>
+
+    <hr>
+
+    <!-- Output section -->
+    <h3>Output:</h3>
+    <pre>
+Array 1:[]
+Array 2:[]
+Array 1:[1, 2, 3, 4, 5]
+Array 2:[1, 2, 3, 4, 5]
+    </pre>
+</body>
+</html>

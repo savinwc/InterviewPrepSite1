@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Maps</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+        h1, h2, h3 {
+            color: #e0e0e0;
+        }
+        h1 {
+            border-bottom: 2px solid #333; /* Darker border */
+            padding-bottom: 10px;
+        }
+        h2, h3 {
+            border-bottom: 1px solid #333; /* Darker border */
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        code {
+            background-color: #1e1e1e; /* Darker code background */
+            color: #dcdcdc; /* Light text in code */
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+        }
+        th {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        td {
+            background-color: #1e1e1e;
+        }
+        .code-container {
+            margin-top: 20px;
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .code-container pre {
+            margin: 0;
+        }
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding Maps</h1>
+
+    <img src="https://shareprogramming.net/wp-content/uploads/2021/01/Map.png" alt="HashMap">
+    <p>Maps are ideal for key-value association mapping, similar to dictionaries. They are used to perform lookups by keys or when there is a need to retrieve and update elements using keys. Maps are versatile data structures that can efficiently manage relationships between unique keys and corresponding values.</p>
+    <h2>Common Scenarios for Using Maps</h2>
+    <ul>
+        <li><strong>Map of Error Codes and Their Descriptions:</strong> A map can be used to associate error codes with their descriptions. For instance:
+            <code>{"404": "Not Found", "500": "Internal Server Error", "403": "Forbidden"}</code>
+        </li>
+        <li><strong>Map of Zip Codes and Cities:</strong> A map can store zip codes as keys and their corresponding cities as values. For example:
+            <code>{"10001": "New York", "90001": "Los Angeles", "60601": "Chicago"}</code>
+        </li>
+        <li><strong>Map of Managers and Employees:</strong> Each manager (key) can be associated with a list of employees (value) they manage. For instance:
+            <code>{"John Smith": ["Alice", "Bob"], "Jane Doe": ["Charlie", "David"]}</code>
+        </li>
+        <li><strong>Map of Classes and Students:</strong> Each class (key) can be mapped to a list of students (value) enrolled in that class. For example:
+            <code>{"Math": ["John", "Jane"], "Science": ["Alice", "Bob"]}</code>
+        </li>
+    </ul>
+
+    <h2>Comparison of Map Implementations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Aspect</th>
+                <th>HashMap</th>
+                <th>TreeMap</th>
+                <th>LinkedHashMap</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Implements</td>
+                <td>Map</td>
+                <td>SortedMap, Map</td>
+                <td>Map, LinkedHashMap</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>Provides a basic map implementation with no order guarantee.</td>
+                <td>Implements SortedMap and provides additional methods for dealing with sorted maps. Maps according to natural ordering or a comparator.</td>
+                <td>Maintains insertion order. Does not guarantee order based on sorting.</td>
+            </tr>
+            <tr>
+                <td>Order</td>
+                <td>No guaranteed order.</td>
+                <td>Sorted order, based on natural ordering or a comparator.</td>
+                <td>Insertion order is maintained.</td>
+            </tr>
+            <tr>
+                <td>Allows Null Keys/Values</td>
+                <td>Allows one null key and multiple null values.</td>
+                <td>Does not allow null keys and multiple null values. Allows null values.</td>
+                <td>Allows one null key and multiple null values.</td>
+            </tr>
+            <tr>
+                <td>Common Use Case</td>
+                <td>Use for general-purpose map implementation where order is not based on sorting.</td>
+                <td>Use when you need a map that is sorted.</td>
+                <td>Use when you need a map with a predictable order based on insertion.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Map Methods</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Action Performed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>clear()</code></td>
+                <td>Clears and removes all elements or mappings from a specified Map collection.</td>
+            </tr>
+            <tr>
+                <td><code>containsKey(Object key)</code></td>
+                <td>Checks whether a particular key is mapped in the Map. Returns true if the key is present, otherwise false.</td>
+            </tr>
+            <tr>
+                <td><code>containsValue(Object value)</code></td>
+                <td>Checks whether a particular value is mapped by any key in the Map. Returns true if the value is present, otherwise false.</td>
+            </tr>
+            <tr>
+                <td><code>entrySet()</code></td>
+                <td>Creates a set view of the map's entries (key-value pairs). Returns a set of map entries.</td>
+            </tr>
+            <tr>
+                <td><code>equals(Object obj)</code></td>
+                <td>Checks for equality between two maps. Returns true if the maps contain the same key-value pairs.</td>
+            </tr>
+            <tr>
+                <td><code>get(Object key)</code></td>
+                <td>Retrieves or fetches the value mapped by the specified key. Returns null if no mapping exists for the key.</td>
+            </tr>
+            <tr>
+                <td><code>hashCode()</code></td>
+                <td>Generates a hash code for the map based on its key-value pairs.</td>
+            </tr>
+            <tr>
+                <td><code>isEmpty()</code></td>
+                <td>Checks if the map is empty (i.e., no key-value pairs exist). Returns true if the map is empty, otherwise false.</td>
+            </tr>
+            <tr>
+                <td><code>keySet()</code></td>
+                <td>Returns a set view of the keys contained in the map. The set is backed by the map.</td>
+            </tr>
+            <tr>
+                <td><code>put(Object key, Object value)</code></td>
+                <td>Associates the specified value with the specified key in the map.</td>
+            </tr>
+            <tr>
+                <td><code>putAll(Map<? extends K, ? extends V> m)</code></td>
+                <td>Copies all mappings from the specified map to this map.</td>
+            </tr>
+            <tr>
+                <td><code>remove(Object key)</code></td>
+                <td>Removes the mapping for the specified key if it is present in the map.</td>
+            </tr>
+            <tr>
+                <td><code>size()</code></td>
+                <td>Returns the number of key-value pairs in the map.</td>
+            </tr>
+            <tr>
+                <td><code>values()</code></td>
+                <td>Creates a collection view of the values contained in the map.</td>
+            </tr>
+            <tr>
+                <td><code>getOrDefault(Object key, V defaultValue)</code></td>
+                <td>Returns the value to which the specified key is mapped, or <code>defaultValue</code> if no mapping exists for the key.</td>
+            </tr>
+            <tr>
+                <td><code>merge(K key, V value, BiFunction<? super K, ? super V, ? extends V> remappingFunction)</code></td>
+                <td>Associates the specified key with the given value if it is not already associated, or updates it using the remapping function if it is.</td>
+            </tr>
+            <tr>
+                <td><code>putIfAbsent(K key, V value)</code></td>
+                <td>Associates the specified key with the given value if the key is not already associated with a value. Returns null if the association was made; otherwise, returns the current value.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Code Example</h2>
+    <div class="code-container">
+        <pre><code>
+import java.util.*;
+
+// Main class
+public class Main {
+
+    // Main driver method
+    public static void main(String[] args)
+    {
+
+        // Creating an empty HashMap
+        Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+
+        // Inserting entries in the Map
+        // using put() method
+        map.put("vishal", 10);
+        map.put("sachin", 30);
+        map.put("vaibhav", 20);
+
+        // Iterating over Map
+        for (Map.Entry&lt;String, Integer&gt; e : map.entrySet())
+
+            // Printing key-value pairs
+            System.out.println(e.getKey() + " " + e.getValue());
+    }
+}
+        </code></pre>
+    </div>
+    <div class="output">
+        <strong>Output:</strong> <br>
+        vaibhav 20<br>
+        vishal 10<br>
+        sachin 30<br>
+    </div>
+</body>
+</html>
